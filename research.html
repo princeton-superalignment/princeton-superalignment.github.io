@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Research from Princeton SuperAlignment."
+    >
+    <title>Research | Princeton SuperAlignment</title>
+    <style>
+      body {
+        background-color: #000;
+        padding: 50px;
+        font: 14px/1.5 "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        color: #ddd;
+        font-weight: 400;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        color: #fff;
+        margin: 0 0 20px;
+      }
+
+      h1,
+      h2,
+      h3 {
+        line-height: 1.1;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      h2 {
+        color: #fff;
+      }
+
+      p,
+      ul {
+        margin: 0 0 20px;
+      }
+
+      a {
+        color: #8cc8ff;
+        text-decoration: none;
+      }
+
+      a:hover,
+      a:focus {
+        color: #c6e3ff;
+      }
+
+      strong {
+        color: #fff;
+        font-weight: 700;
+      }
+
+      .wrapper {
+        width: min(100%, 760px);
+        margin: 0 auto;
+      }
+
+      header {
+        width: 100%;
+        margin: 0 0 36px;
+        -webkit-font-smoothing: subpixel-antialiased;
+      }
+
+      header h1 a {
+        color: #fff;
+      }
+
+      .navigation {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5em;
+        margin-top: 18px;
+      }
+
+      .navigation span a {
+        display: inline-block;
+        padding: 0.4em 1em;
+        border: 1px solid #333;
+        border-radius: 4px;
+        text-decoration: none;
+        color: #8cc8ff;
+        font-size: 0.95em;
+        transition: background-color 0.15s, border-color 0.15s;
+      }
+
+      .navigation span a:hover,
+      .navigation span a:focus {
+        background-color: #267cb9;
+        color: #fff;
+        border-color: #267cb9;
+      }
+
+      .research-list {
+        display: grid;
+        gap: 22px;
+        margin: 0 0 30px;
+      }
+
+      .research-item h3 {
+        font-size: 17px;
+        margin: 0 0 6px;
+      }
+
+      .research-item p {
+        margin: 0 0 6px;
+      }
+
+      .research-meta {
+        color: #aaa;
+      }
+
+      .research-links {
+        margin: 0;
+      }
+
+      .subsection-title {
+        font-size: 18px;
+        margin-top: 28px;
+      }
+
+      @media print, screen and (max-width: 960px) {
+        .wrapper {
+          width: auto;
+          margin: 0;
+        }
+
+        header {
+          width: auto;
+        }
+      }
+
+      @media print, screen and (max-width: 720px) {
+        body {
+          word-wrap: break-word;
+        }
+
+        header {
+          padding: 0;
+        }
+      }
+
+      @media print, screen and (max-width: 480px) {
+        body {
+          padding: 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1><a href="index.html">Princeton SuperAlignment</a></h1>
+        <div class="navigation" aria-label="Primary navigation">
+          <span><a href="index.html">Home</a></span>
+          <span><a href="research.html">Research</a></span>
+        </div>
+      </header>
+      <main>
+        <section aria-labelledby="research-title">
+          <h2 id="research-title">Research</h2>
+          <div class="research-list">
+            <article class="research-item">
+              <h3>AI Alignment via Incentives and Correction</h3>
+              <p class="research-meta">
+                Rohit Agarwal, Joshua Lin, Mark Braverman, Elad Hazan, 2026.
+              </p>
+              <p>
+                A mechanism-design view of alignment in solver-auditor AI
+                pipelines, where reward design induces the behavioral
+                equilibrium of both solving and oversight.
+              </p>
+              <p class="research-links">
+                <a href="https://arxiv.org/abs/2605.01643">arXiv</a>
+              </p>
+            </article>
+
+            <article class="research-item">
+              <h3>Playing Large Games with Oracles and AI Debate</h3>
+              <p class="research-meta">
+                Xinyi Chen, Angelica Chen, Dean Foster, Elad Hazan, 2023.
+              </p>
+              <p>
+                Oracle-based algorithms for regret minimization in very large
+                games, motivated by AI Safety via Debate and language-based
+                action spaces.
+              </p>
+              <p class="research-links">
+                <a href="https://arxiv.org/abs/2312.04792">arXiv</a>
+              </p>
+            </article>
+
+            <article class="research-item">
+              <h3>The Hidden Game Problem</h3>
+              <p class="research-meta">
+                Gon Buzaglo, Noah Golowich, Elad Hazan, 2025.
+              </p>
+              <p>
+                A study of efficient regret minimization in games with hidden
+                high-reward structure, motivated by AI alignment and language
+                games.
+              </p>
+              <p class="research-links">
+                <a href="https://arxiv.org/abs/2510.03845">arXiv</a>
+              </p>
+            </article>
+          </div>
+
+          <h2 class="subsection-title">Essay</h2>
+          <div class="research-list">
+            <article class="research-item">
+              <h3>AI Alignment as Equilibrium Design</h3>
+              <p class="research-meta">Elad Hazan, LessWrong, 2026.</p>
+              <p>
+                An accessible overview of the mechanism-design perspective on
+                AI alignment.
+              </p>
+              <p class="research-links">
+                <a href="https://www.lesswrong.com/posts/twWfH9TGHpMGYokj6/alignment-as-equilibrium-design">LessWrong</a>
+              </p>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
