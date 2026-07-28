@@ -86,28 +86,47 @@
     .links {
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: baseline;
       flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 20px;
+      gap: 4px 18px;
+      margin-top: 18px;
+      font-size: 1.08em;
     }
 
-    .button {
-      background-color: #363636;
-      color: #fff;
-      cursor: pointer;
+    .links .link::before {
+      content: "[";
+      color: #898781;
+    }
+
+    .links .link::after {
+      content: "]";
+      color: #898781;
+    }
+
+    .links a {
+      color: #20638f;
+      padding: 0 1px;
       white-space: nowrap;
-      font-size: 1rem;
-      font-family: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
-      border-radius: 290486px;
-      padding: calc(0.5em - 1px) 1.4em;
-      text-decoration: none;
-      display: inline-block;
     }
 
-    .button:hover {
-      background-color: #4a4a4a;
-      color: #fff;
+    .links a:hover {
+      color: #b45309;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    h2 {
+      padding-bottom: 7px;
+      position: relative;
+    }
+
+    h2::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 36px;
+      border-bottom: 3px solid #b45309;
     }
 
     section {
@@ -388,9 +407,9 @@
       Princeton Superalignment, Princeton University
     </div>
     <div class="links">
-      <span class="link"><a href="https://arxiv.org/abs/2607.07040" class="button">arXiv</a></span>
-      <span class="link"><a href="https://arxiv.org/pdf/2607.07040" class="button">Paper (PDF)</a></span>
-      <span class="link"><a href="https://github.com/Princeton-AI-Alignment/combined-protocol" class="button">Code</a></span>
+      <span class="link"><a href="https://arxiv.org/abs/2607.07040">arXiv</a></span>
+      <span class="link"><a href="https://arxiv.org/pdf/2607.07040">Paper (PDF)</a></span>
+      <span class="link"><a href="https://github.com/Princeton-AI-Alignment/combined-protocol">Code</a></span>
     </div>
   </header>
 
