@@ -501,8 +501,8 @@
         <p>
           Since Spearman&rsquo;s 1904 discovery that performance across cognitive tests is positively correlated,
           intelligence has been measured psychometrically: an examiner designs tasks, subjects solve them, and a
-          latent ability score is inferred from the outcomes. Nearly every AI benchmark &mdash; MMLU, BIG-Bench,
-          HELM, ARC, FrontierMath, Humanity&rsquo;s Last Exam &mdash; inherits this structure. The tasks are fixed
+          latent ability score is inferred from the outcomes. Nearly every AI benchmark (MMLU, BIG-Bench,
+          HELM, ARC, FrontierMath, Humanity&rsquo;s Last Exam) inherits this structure. The tasks are fixed
           in advance and authored by people.
         </p>
       </div>
@@ -523,7 +523,7 @@
           A tempting fix is a pairwise tournament: model <var>i</var> wins by authoring a challenge it can solve but
           model <var>j</var> cannot, and Elo-style ratings aggregate the outcomes. But this rewards asymmetric
           information rather than capability. A proposer can ask &ldquo;which bit am I thinking of?&rdquo;, or
-          publish the product of two large primes it generated and demand the factorization &mdash; a trapdoor
+          publish the product of two large primes it generated and demand the factorization, a trapdoor
           inserted at construction time. And without an external judge, nothing forces the pair&rsquo;s agreed
           resolution to be the <em>true</em> one.
         </p>
@@ -536,7 +536,7 @@
           <strong>variance</strong> of the panel&rsquo;s answers, not for defeating one opponent. Private-state and
           trapdoor questions collapse: a calibrated panel uniformly answers &ldquo;50/50&rdquo;, inducing no
           variance and earning nothing. The only way to score is to find public questions on which capable systems
-          <em>genuinely disagree</em> &mdash; that is, to discover the capability boundaries of the population.
+          <em>disagree</em>; in other words, to discover the capability boundaries of the population.
           Ranking models by their ability to separate (and to solve) yields a rating system, <strong
             style="color:#b45309">SepaRank</strong>, that scales with the models being measured instead of with
           their examiners.
@@ -590,8 +590,8 @@
     <section>
       <h2>How a round works</h2>
       <ol class="step-list">
-        <li><strong>Propose.</strong> Each model in turn authors a binary challenge &mdash; a yes/no question or an
-          executable program whose <code>main()</code> returns 0 or 1 &mdash; and commits an answer
+        <li><strong>Propose.</strong> Each model in turn authors a binary challenge (a yes/no question or an
+          executable program whose <code>main()</code> returns 0 or 1) and commits an answer
           <var>&#375;</var> that the panel never sees.</li>
         <li><strong>Sample a panel.</strong> <var>k</var> solvers are drawn from the other models, weighted toward
           the current frontier (see adaptive weighting below).</li>
@@ -612,7 +612,7 @@
 
       <p>
         The factor of 4 normalizes the proposer&rsquo;s reward to [0,&thinsp;1]: it is maximal when the panel splits
-        into confident, opposing camps, and zero when everyone agrees &mdash; or everyone hedges. The Brier loss
+        into confident, opposing camps, and zero when everyone agrees, and also when everyone hedges. The Brier loss
         makes calibrated reporting each solver&rsquo;s best response, so the mechanism separates <em>knowing</em>
         from <em>knowing that one does not know</em>. Each round, a model&rsquo;s proposer reward <var>P</var> and
         (negated) mean solver loss <var>Q</var> are z-scored across the field and averaged,
@@ -625,7 +625,7 @@
 
       <p>
         and the cumulative total <var>G</var> is the ranking. Because challenges are authored by the players
-        themselves, the test&rsquo;s difficulty automatically tracks the field&rsquo;s ability &mdash; no human ever
+        themselves, the test&rsquo;s difficulty automatically tracks the field&rsquo;s ability; no human ever
         has to write a harder exam.
       </p>
 
@@ -652,7 +652,7 @@
       <h3>Four resolution rules, one scoring mechanism</h3>
       <p>
         The scoring never changes; only how the truth bit <var>y</var> is fixed. This lets the same protocol span
-        fully verifiable domains and completely open-ended ones &mdash; including judge-free operation.
+        fully verifiable domains and completely open-ended ones, including judge-free operation.
       </p>
       <div class="table-container">
         <table class="data">
@@ -702,8 +702,8 @@
         as ten independent 20-round games per arm, each fielding the same <strong>N&nbsp;=&nbsp;11</strong>
         contemporary models from five providers (OpenAI, Anthropic, Alibaba, Moonshot&nbsp;AI, DeepSeek) under
         stable pseudonyms. Every round each model authors one challenge and a panel of <var>k</var>&nbsp;=&nbsp;5
-        solvers is sampled; prompts disclose the entire mechanism &mdash; scoring formulas, resolution rule,
-        adaptive weighting, and the last five rounds of transcript &mdash; with no strategy hints. Programs are
+        solvers is sampled; prompts disclose the entire mechanism (scoring formulas, resolution rule,
+        adaptive weighting, and the last five rounds of transcript) with no strategy hints. Programs are
         machine-checked in a sandbox; nothing else is judged by a human.
       </p>
 
@@ -836,18 +836,18 @@
           &plusmn; 95% confidence interval over ten games of each committed-resolution arm. In the program arm the
           two frontier OpenAI models separate from the field <em>and from each other</em> (gpt-5.5 over gpt-5.4:
           &Delta;G&nbsp;=&nbsp;3.1, p&nbsp;=&nbsp;0.008; gpt-5.4 over third place: &Delta;G&nbsp;=&nbsp;6.4,
-          p&nbsp;=&nbsp;0.006) &mdash; the protocol resolves differences at the top of the field without any
+          p&nbsp;=&nbsp;0.006). The protocol resolves differences at the top of the field without any
           human-written test.</figcaption>
       </figure>
 
       <p>
         The rankings track the roster&rsquo;s known capability span: frontier models lead both arms and the small
-        non-reasoning model anchors the bottom of both. Solver behavior explains much of the spread &mdash; reports
+        non-reasoning model anchors the bottom of both. Solver behavior explains much of the spread: reports
         are nearly binary (mean distance from &frac12; between 0.39 and 0.50 for every model), so Brier loss is
-        governed by directional accuracy. The weakest models are not merely ignorant but <em>miscalibrated</em>:
+        governed by directional accuracy. The weakest models are <em>miscalibrated</em>, not just ignorant:
         gpt-4o-mini answers on the wrong side 40% of the time while staying confident, earning a loss (0.388) worse
         than a solver that always answers &frac12; (0.25). The strongest models are both directionally correct and
-        the most willing to hedge &mdash; the proper scoring rule is doing its intended work, and failing to declare
+        the most willing to hedge. The proper scoring rule is doing its intended work, and failing to declare
         uncertainty is itself a capability signal.
       </p>
 
@@ -923,8 +923,8 @@
 <text x="120.5" y="244.0" font-size="11" fill="#52514e" text-anchor="end">deepseek-v4-pro</text>
 <circle cx="102.1" cy="338.6" r="5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"><title>gpt-4o-mini: program -6.9, question -13.3</title></circle>
 <text x="111.1" y="345.6" font-size="11" fill="#52514e" text-anchor="start">gpt-4o-mini</text>
-<text x="262" y="416" font-size="11" fill="#898781" text-anchor="middle">total score G &#8212; program / committed</text>
-<text x="14" y="196" font-size="11" fill="#898781" text-anchor="middle" transform="rotate(-90 14 196)">total score G &#8212; question / committed</text>
+<text x="262" y="416" font-size="11" fill="#898781" text-anchor="middle">total score G (program / committed)</text>
+<text x="14" y="196" font-size="11" fill="#898781" text-anchor="middle" transform="rotate(-90 14 196)">total score G (question / committed)</text>
 </svg>
         <figcaption><span class="figlabel">Two very different task domains, one ranking.</span> Each model&rsquo;s
           total score in the program arm (x) against the question arm (y), with 95% CIs. The arms agree on the
@@ -937,7 +937,7 @@
     <section>
       <h2>When lying is legal, honesty becomes a measurement</h2>
       <p>
-        In the committed arms the resolved answer is whatever the proposer commits &mdash; misrepresentation is a
+        In the committed arms the resolved answer is whatever the proposer commits, so misrepresentation is a
         <em>legal move</em>. What do models do with that freedom?
       </p>
       <ul>
@@ -949,7 +949,7 @@
         <li><strong>And the strategy concentrates at the top:</strong> the arm&rsquo;s winner, gpt-5.5, is also its
           least honest proposer (59%), alternating honest and false commitments on the <em>same</em> challenge
           template so that recognizing the template reveals nothing. Meanwhile qwen3.7-max commits honestly in 198
-          of 200 proposals &mdash; and is outranked.</li>
+          of 200 proposals, and is outranked.</li>
       </ul>
 
       <figure>
@@ -1014,21 +1014,21 @@
 <circle cx="360.3" cy="296.3" r="5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"><title>gpt-4o-mini: honest on 90% of proposals, G = -6.9</title></circle>
 <text x="370.3" y="303.3" font-size="11" fill="#52514e" text-anchor="start">gpt-4o-mini</text>
 <text x="262" y="376" font-size="11" fill="#898781" text-anchor="middle">honest commitments (committed bit = executed bit, % of valid proposals)</text>
-<text x="14" y="176" font-size="11" fill="#898781" text-anchor="middle" transform="rotate(-90 14 176)">total score G &#8212; program / committed</text>
+<text x="14" y="176" font-size="11" fill="#898781" text-anchor="middle" transform="rotate(-90 14 176)">total score G (program / committed)</text>
 </svg>
         <figcaption><span class="figlabel">Honesty vs. rating in the program/committed arm.</span> The winner is the
           least honest proposer, and the two most honest models (qwen3.7-max, opus-4.8) sit mid-table. Weak
-          models&rsquo; miscommitments are a different phenomenon &mdash; they fail to predict their own
+          models&rsquo; miscommitments are a different phenomenon: they fail to predict their own
           programs.</figcaption>
       </figure>
 
       <p>
         The starkest case is opus-4.8, whose program-arm rating belies its solving ability (third-best Brier loss).
         Its authored challenges are <em>too cooperative</em>: 92% of its programs carry comments, 70% narrate the
-        computation or its result, and 97.5% of its commitments are honest &mdash; annotated exercises with reliable
+        computation or its result, and 97.5% of its commitments are honest. The result is annotated exercises with reliable
         answers, which a field this strong solves unanimously (on 84.5% of its programs every panelist answers
         correctly, versus 23.1% for gpt-5.5). Its five miscommitted proposals earned nearly four times its average
-        reward &mdash; an incentive it declines to engage in. The committed arm specifically prices transparent,
+        reward, an incentive it declines to engage in. The committed arm specifically prices transparent,
         honest authoring, and different models pay very different amounts for it.
       </p>
     </section>
@@ -1060,11 +1060,11 @@
 
       <p>
         Erratic committers get hedged to zero; identity questions are answered by modeling the proposer rather than
-        oneself (and expose a genuine <em>theory-of-self</em> failure in models that answer for themselves &mdash;
+        oneself (and expose a <em>theory-of-self</em> failure in models that answer for themselves,
         including strong ones); intractable questions collapse to the bit-guessing game and stop paying. The
         takeaway: <strong>under SepaRank, the only reason to answer confidently is the belief that you know
-        something the others don&rsquo;t, and the only questions that keep paying are well-formed, genuinely hard
-        ones.</strong> The equilibrium sharpens as the field gets more rational &mdash; exactly the property a
+        something the others don&rsquo;t, and the only questions that keep paying are well-formed and hard
+        ones.</strong> The equilibrium sharpens as the field gets more rational; that is exactly the property a
         beyond-human-scale benchmark needs.
       </p>
 
@@ -1087,7 +1087,7 @@
             </tr>
             <tr>
               <td>&ldquo;Does France share a land border with Brazil?&rdquo;</td>
-              <td>Counterintuitive fact (yes &mdash; French Guiana)</td>
+              <td>Counterintuitive fact (yes, via French Guiana)</td>
               <td class="num">0.93</td>
             </tr>
             <tr>
@@ -1102,13 +1102,13 @@
               <td class="num">0.63</td>
             </tr>
             <tr>
-              <td>&ldquo;Is the number 2026 equal to 2026?&rdquo; <em>&mdash; committed 0</em></td>
+              <td>&ldquo;Is the number 2026 equal to 2026?&rdquo; <em>(committed 0)</em></td>
               <td>Weaponized tautology: the panel splits between the fact and the anticipated false commit</td>
               <td class="num">0.91</td>
             </tr>
             <tr>
               <td><code>x = float("nan"); return int(x in [x])</code> <em>(program arm)</em></td>
-              <td>Semantic edge case (containers check identity before equality) &mdash; reused with <em>opposite</em>
+              <td>Semantic edge case (containers check identity before equality), reused with <em>opposite</em>
                 commitments across games</td>
               <td class="num">&mdash;</td>
             </tr>
@@ -1126,8 +1126,8 @@
         challenges constructed by others. The mechanism neutralizes private-information attacks by design, runs
         with or without a judge, resolves statistically significant distinctions <em>within the frontier</em>, and
         produces consistent rankings across verifiable and open-ended domains. Beyond measurement, the protocol
-        generates a growing corpus of machine-authored questions at the frontier of the field&rsquo;s knowledge
-        &mdash; raw material for post-training and self-improvement.
+        generates a growing corpus of machine-authored questions at the frontier of the field&rsquo;s knowledge:
+        raw material for post-training and self-improvement.
       </p>
     </section>
 
